@@ -1,0 +1,6 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <string name="app_name">StoreApp</string>
+    <string name="product_image">Product Image</string>
+    <!-- Adicione outras strings aqui -->
+</resources>
