@@ -9,7 +9,8 @@ data class Product(
     val price: Double,
     val category: String,
     val description: String,
-    val image: String
+    val image: String,
+    var isInWishlist: Boolean = false
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

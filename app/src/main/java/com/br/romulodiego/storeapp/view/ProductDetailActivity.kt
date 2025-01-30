@@ -10,7 +10,7 @@ import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ActivityProductDetailBinding
 import com.br.romulodiego.storeapp.model.Product
 import com.br.romulodiego.storeapp.model.ProductFavorite
-import com.jamiltondamasceno.applistatarefas.database.ProdutoFavoritoDAO
+import com.br.romulodiego.storeapp.database.ProdutoFavoritoDAO
 import kotlin.random.Random
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -47,7 +47,7 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     fun salvarFavorito(view: View){
-        val produtoFavoritoDAO = ProdutoFavoritoDAO(this) // Instancia o DAO
+        val produtoFavoritoDAO = ProdutoFavoritoDAO(this)
         val product = intent.getParcelableExtra<Product>("product")
         product?.let {
             val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
@@ -57,7 +57,7 @@ class ProductDetailActivity : AppCompatActivity() {
             binding.productPrice.text = it.price.toString()
 
             val productFavorite = ProductFavorite(
-                id = 0, // ID será gerado automaticamente pelo banco de dados
+                id = it.id,
                 title = it.title,
                 price = it.price,
             )

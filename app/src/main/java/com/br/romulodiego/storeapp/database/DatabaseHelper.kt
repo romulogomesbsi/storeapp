@@ -1,4 +1,4 @@
-package com.jamiltondamasceno.applistatarefas.database
+package com.br.romulodiego.storeapp.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -22,7 +22,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
     override fun onCreate(db: SQLiteDatabase?) {
 
         val sql = "CREATE TABLE IF NOT EXISTS $NOME_TABELA_PRODUTO_FAVORITO(" +
-                "$COLUNA_ID_PRODUTO_FAVORITO INTEGER not NULL PRIMARY KEY AUTOINCREMENT," +
+                "$COLUNA_ID_PRODUTO_FAVORITO INTEGER not NULL," +
                 "$COLUNA_TITLE_PRODUTO_FAVORITO VARCHAR(255)," +
                 "$COLUNA_PRICE_PRODUTO_FAVORITO DOUBLE NOT NULL" +
                 ");"

@@ -53,7 +53,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,5 +80,32 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/TextItemFavoritado"
+                android:text="Item favoritado "
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:paddingBottom="8dp" />
+
+            <Button
+                android:id="@+id/wishlistIndicator"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@android:drawable/btn_star"
+                android:visibility="visible"
+                android:enabled="false"
+                android:layout_gravity="start"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

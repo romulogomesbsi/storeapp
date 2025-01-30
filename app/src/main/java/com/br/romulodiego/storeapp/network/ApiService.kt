@@ -14,6 +14,6 @@ interface ApiService {
     @GET("products/category/{category}")
     suspend fun getProductsByCategory(@Path("category") category: String): List<Product>
 
-    @GET("products")
+    @GET("products/")
     suspend fun searchProducts(@Query("q") query: String): List<Product>
 }

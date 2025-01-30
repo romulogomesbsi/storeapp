@@ -1,4 +1,4 @@
-package com.jamiltondamasceno.applistatarefas.database
+package com.br.romulodiego.storeapp.database
 
 import com.br.romulodiego.storeapp.model.ProductFavorite
 
@@ -9,4 +9,5 @@ interface IProdutoFavoritoDAO {
     fun remover( idTarefa: Int ): Boolean
     fun listar(): List<ProductFavorite>
 
+    fun buscarPorId( idTarefa: Int ): Boolean
 }

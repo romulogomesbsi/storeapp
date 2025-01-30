@@ -1,4 +1,4 @@
-package com.jamiltondamasceno.applistatarefas.database
+package com.br.romulodiego.storeapp.database
 
 import android.content.ContentValues
 import android.content.Context
@@ -13,6 +13,7 @@ class ProdutoFavoritoDAO(context: Context) : IProdutoFavoritoDAO {
     override fun salvar(produto: ProductFavorite): Boolean {
 
         val conteudos = ContentValues()
+        conteudos.put("${DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO}", produto.id)
         conteudos.put("${DatabaseHelper.COLUNA_TITLE_PRODUTO_FAVORITO}", produto.title)
         conteudos.put("${DatabaseHelper.COLUNA_PRICE_PRODUTO_FAVORITO}", produto.price)
 
@@ -64,9 +65,9 @@ class ProdutoFavoritoDAO(context: Context) : IProdutoFavoritoDAO {
 
         val cursor = leitura.rawQuery(sql, null)
 
-        val indiceId = cursor.getColumnIndex( DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO )
-        val indiceTitle = cursor.getColumnIndex( DatabaseHelper.COLUNA_TITLE_PRODUTO_FAVORITO )
-        val indicePrice = cursor.getColumnIndex( DatabaseHelper.COLUNA_PRICE_PRODUTO_FAVORITO )
+        val indiceId = cursor.getColumnIndex(DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO)
+        val indiceTitle = cursor.getColumnIndex(DatabaseHelper.COLUNA_TITLE_PRODUTO_FAVORITO)
+        val indicePrice = cursor.getColumnIndex(DatabaseHelper.COLUNA_PRICE_PRODUTO_FAVORITO)
 
         while ( cursor.moveToNext() ){
 
@@ -82,5 +83,15 @@ class ProdutoFavoritoDAO(context: Context) : IProdutoFavoritoDAO {
 
         return listaProdutosFavoritos
 
+    }
+
+    override fun buscarPorId(idProduto: Int): Boolean {
+        val sql = "SELECT ${DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO} " +
+                "FROM ${DatabaseHelper.NOME_TABELA_PRODUTO_FAVORITO} " +
+                "WHERE ${DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO} = ?"
+
+        val cursor = leitura.rawQuery(sql, arrayOf(idProduto.toString()))
+
+        return cursor.moveToFirst()
     }
 }

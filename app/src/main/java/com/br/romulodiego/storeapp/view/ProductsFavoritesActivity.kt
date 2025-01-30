@@ -8,10 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.br.romulodiego.storeapp.databinding.ActivityProductBinding
 import com.br.romulodiego.storeapp.databinding.ActivityProductsFavoritesBinding
 import com.br.romulodiego.storeapp.model.ProductFavorite
-import com.jamiltondamasceno.applistatarefas.database.ProdutoFavoritoDAO
+import com.br.romulodiego.storeapp.database.ProdutoFavoritoDAO
 
 class ProductsFavoritesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductsFavoritesBinding

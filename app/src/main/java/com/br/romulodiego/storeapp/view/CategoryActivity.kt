@@ -24,7 +24,6 @@ class CategoryActivity : AppCompatActivity() {
         supportActionBar?.title = "Selecione uma categoria"
 
         categoryViewModel.categories.observe(this, Observer { categories ->
-            // Update UI with categories
             binding.recyclerViewCategories.layoutManager = LinearLayoutManager(this)
             binding.recyclerViewCategories.adapter = CategoryAdapter(categories) { category ->
                 val intent = Intent(this, ProductActivity::class.java)
