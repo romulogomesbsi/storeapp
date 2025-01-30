@@ -28,6 +28,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.ProductDetailActivity" android:exported="true"/>
+
+        <activity android:name=".view.ProductsFavoritesActivity" android:exported="true">
+        </activity>
     </application>
 
 </manifest>

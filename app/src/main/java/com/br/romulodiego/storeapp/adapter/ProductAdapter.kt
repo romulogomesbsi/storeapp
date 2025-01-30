@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductBinding
 import com.br.romulodiego.storeapp.model.Product
+import kotlin.random.Random
 
 class ProductAdapter(
     private val products: List<Product>,
@@ -26,7 +27,10 @@ class ProductAdapter(
 
     class ProductViewHolder(private val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product, onClick: (Product) -> Unit) {
-            binding.productImage.setImageResource(R.drawable.ic_launcher_background) // Placeholder image
+
+            val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
+            val randomImage = images[Random.nextInt(images.size)]
+            binding.productImage.setImageResource(randomImage)
             binding.productTitle.text = product.title
             binding.productPrice.text = product.price.toString()
             binding.productCategory.text = product.category
