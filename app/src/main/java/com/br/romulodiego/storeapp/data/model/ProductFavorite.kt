@@ -1,5 +1,5 @@
 // FavoriteProduct.kt
-package com.br.romulodiego.storeapp.model
+package com.br.romulodiego.storeapp.data.model
 
 import java.io.Serializable
 

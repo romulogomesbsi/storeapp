@@ -3,9 +3,9 @@ package com.br.romulodiego.storeapp.data.local
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
-import com.br.romulodiego.storeapp.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.model.ProductFavorite
 
-class ProdutoFavoritoDAO(context: Context) : IProdutoFavoritoDAO {
+class ProductFavoriteDAO(context: Context) : IProductFavoriteDAO {
 
     private val escrita = DatabaseHelper(context).writableDatabase
     private val leitura = DatabaseHelper(context).readableDatabase

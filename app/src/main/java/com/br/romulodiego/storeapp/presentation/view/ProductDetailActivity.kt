@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.view
+package com.br.romulodiego.storeapp.presentation.view
 
 
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ActivityProductDetailBinding
-import com.br.romulodiego.storeapp.model.Product
-import com.br.romulodiego.storeapp.model.ProductFavorite
-import com.br.romulodiego.storeapp.database.ProdutoFavoritoDAO
+import com.br.romulodiego.storeapp.data.model.Product
+import com.br.romulodiego.storeapp.data.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.local.ProductFavoriteDAO
 import kotlin.random.Random
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -45,9 +45,8 @@ class ProductDetailActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    fun salvarFavorito(view: View){
-        val produtoFavoritoDAO = ProdutoFavoritoDAO(this)
+    fun saveFavorite(view: View) {
+        val productFavoriteDAO = ProductFavoriteDAO(this)
         val product = intent.getParcelableExtra<Product>("product")
         product?.let {
             val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
@@ -56,19 +55,19 @@ class ProductDetailActivity : AppCompatActivity() {
             binding.productTitle.text = it.title
             binding.productPrice.text = it.price.toString()
 
+
             val productFavorite = ProductFavorite(
                 id = it.id,
                 title = it.title,
                 price = it.price,
             )
-            val sucesso = produtoFavoritoDAO.salvar(productFavorite)
+            val sucesso = productFavoriteDAO.salvar(productFavorite)
             if (sucesso) {
                 Toast.makeText(this, "Produto salvo na lista de favoritos", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, "Erro ao salvar produto na lista de favoritos", Toast.LENGTH_LONG).show()
             }
         }
-
 
     }
 }

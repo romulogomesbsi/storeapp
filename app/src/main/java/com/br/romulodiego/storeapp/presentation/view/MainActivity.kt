@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.view
+package com.br.romulodiego.storeapp.presentation.view
 
 
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.br.romulodiego.storeapp.R
-import com.br.romulodiego.storeapp.view.CategoryActivity
+import com.br.romulodiego.storeapp.presentation.view.CategoryActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,7 +1,7 @@
 // ProductsFavorites.kt
-package com.br.romulodiego.storeapp.view
+package com.br.romulodiego.storeapp.presentation.view
 
-import ProdutoFavoritoAdapter
+import ProductFavoriteAdapter
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,14 +9,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.romulodiego.storeapp.databinding.ActivityProductsFavoritesBinding
-import com.br.romulodiego.storeapp.model.ProductFavorite
-import com.br.romulodiego.storeapp.database.ProdutoFavoritoDAO
+import com.br.romulodiego.storeapp.data.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.local.ProductFavoriteDAO
 
 class ProductsFavoritesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductsFavoritesBinding
 
     private var productFavoriteList = emptyList<ProductFavorite>()
-    private var productFavoriteAdapter: ProdutoFavoritoAdapter? = null
+    private var productFavoriteAdapter: ProductFavoriteAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,17 +27,17 @@ class ProductsFavoritesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Favoritos"
 
-        productFavoriteAdapter = ProdutoFavoritoAdapter { id -> confirmarExclusao(id) }
+        productFavoriteAdapter = ProductFavoriteAdapter { id -> confirmDelete(id) }
         binding.recyclerViewFavorites.adapter = productFavoriteAdapter
         binding.recyclerViewFavorites.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onStart() {
         super.onStart()
-        atualizaListaProdutosFavoritos()
+        updateProductsFavoritiesList()
     }
 
-    private fun confirmarExclusao(id: Int) {
+    private fun confirmDelete(id: Int) {
 
         val alertBuilder = AlertDialog.Builder(this)
 
@@ -46,9 +46,9 @@ class ProductsFavoritesActivity : AppCompatActivity() {
 
         alertBuilder.setPositiveButton("Sim"){ _, _ ->
 
-            val tarefaDAO = ProdutoFavoritoDAO(this)
-            if ( tarefaDAO.remover( id ) ){
-                atualizaListaProdutosFavoritos()
+            val productFavoriteDAO = ProductFavoriteDAO(this)
+            if ( productFavoriteDAO.remover( id ) ){
+                updateProductsFavoritiesList()
                 Toast.makeText(
                     this,
                     "Sucesso ao remover tarefa", Toast.LENGTH_SHORT
@@ -69,11 +69,11 @@ class ProductsFavoritesActivity : AppCompatActivity() {
     }
 
 
-    private fun atualizaListaProdutosFavoritos(){
+    private fun updateProductsFavoritiesList(){
 
-        val produtoFavoritoDAODAO = ProdutoFavoritoDAO(this)
-        productFavoriteList = produtoFavoritoDAODAO.listar()
-        productFavoriteAdapter?.adicionarLista( productFavoriteList )
+        val productFavoriteDAO = ProductFavoriteDAO(this)
+        productFavoriteList = productFavoriteDAO.listar()
+        productFavoriteAdapter?.addToList( productFavoriteList )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

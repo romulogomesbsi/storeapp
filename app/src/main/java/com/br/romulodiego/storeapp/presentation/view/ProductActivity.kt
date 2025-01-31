@@ -1,5 +1,5 @@
 // ProductActivity.kt
-package com.br.romulodiego.storeapp.view
+package com.br.romulodiego.storeapp.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,10 +13,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.romulodiego.storeapp.R
-import com.br.romulodiego.storeapp.adapter.ProductAdapter
+import com.br.romulodiego.storeapp.presentation.adapter.ProductAdapter
 import com.br.romulodiego.storeapp.databinding.ActivityProductBinding
-import com.br.romulodiego.storeapp.viewmodel.ProductViewModel
-import com.br.romulodiego.storeapp.viewmodel.ProductViewModelFactory
+import com.br.romulodiego.storeapp.presentation.viewmodel.ProductViewModel
+import com.br.romulodiego.storeapp.presentation.viewmodel.ProductViewModelFactory
 class ProductActivity : AppCompatActivity() {
     private val productViewModel: ProductViewModel by viewModels { ProductViewModelFactory(this) }
     private lateinit var binding: ActivityProductBinding
@@ -43,6 +43,11 @@ class ProductActivity : AppCompatActivity() {
         productViewModel.fetchProductsByCategory(category)
     }
 
+    override fun onResume() {
+        super.onResume()
+        val category = intent.getStringExtra("category") ?: return
+        productViewModel.fetchProductsByCategory(category)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)

@@ -1,5 +1,5 @@
 // CategoryAdapter.kt
-package com.br.romulodiego.storeapp.adapter
+package com.br.romulodiego.storeapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

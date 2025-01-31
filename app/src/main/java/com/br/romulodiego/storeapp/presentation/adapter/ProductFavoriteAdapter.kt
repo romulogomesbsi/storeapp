@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductFavoriteBinding
-import com.br.romulodiego.storeapp.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.model.ProductFavorite
 
 class ProductFavoriteAdapter(
     val onClickExcluir: (Int) -> Unit

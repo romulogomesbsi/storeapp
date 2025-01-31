@@ -1,9 +1,9 @@
 package com.br.romulodiego.storeapp.data.local
 
-import com.br.romulodiego.storeapp.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.model.ProductFavorite
 
 
-interface IProdutoFavoritoDAO {
+interface IProductFavoriteDAO {
 
     fun salvar( tarefa: ProductFavorite): Boolean
     fun remover( idTarefa: Int ): Boolean

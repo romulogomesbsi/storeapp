@@ -1,5 +1,5 @@
 // ProductAdapter.kt
-package com.br.romulodiego.storeapp.adapter
+package com.br.romulodiego.storeapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductBinding
-import com.br.romulodiego.storeapp.model.Product
+import com.br.romulodiego.storeapp.data.model.Product
 import kotlin.random.Random
 
 class ProductAdapter(

@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.viewmodel
+package com.br.romulodiego.storeapp.presentation.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

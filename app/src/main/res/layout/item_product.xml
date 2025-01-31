@@ -3,24 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:gravity="center_vertical">
 
     <ImageView
         android:id="@+id/product_image"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="7"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
+        android:layout_height="100dp"
+        android:layout_weight="3"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/product_image" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="7"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:orientation="vertical"
-        android:paddingStart="8dp"
-        android:paddingLeft="8dp">
+        android:paddingStart="8dp">
 
         <TextView
             android:id="@+id/product_title"
@@ -28,49 +27,50 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:paddingTop="8dp"
             android:maxLines="1"
-            android:paddingBottom="2dp" />
+            android:ellipsize="end" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Preço: R$"
                 android:textSize="14sp"
-                android:textColor="@android:color/holo_green_dark"
-                />
+                android:textColor="@android:color/holo_green_dark" />
+
             <TextView
                 android:id="@+id/product_price"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="@android:color/holo_green_dark"
-                 />
+                android:textColor="@android:color/holo_green_dark" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp">
+            android:orientation="horizontal"
+            android:gravity="start">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Categoria: "
                 android:textSize="12sp"
-                android:textColor="@android:color/darker_gray"
-                android:text="Categoria: "/>
+                android:textColor="@android:color/darker_gray"/>
+
             <TextView
                 android:id="@+id/product_category"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
-
-
 
         <TextView
             android:id="@+id/product_description"
@@ -78,34 +78,35 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:maxLines="3"
-            android:ellipsize="end"
-            android:paddingBottom="8dp" />
+            android:ellipsize="end" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingTop="4dp">
 
             <TextView
-                android:id="@+id/TextItemFavoritado"
-                android:text="Item favoritado "
+                android:id="@+id/textFavoriteItem"
+                android:text="Item favoritado"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="12sp"
-                android:maxLines="3"
-                android:ellipsize="end"
-                android:paddingBottom="8dp" />
+                android:ellipsize="end" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/wishlistIndicator"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:textColor="@android:color/holo_blue_dark"
                 android:background="@android:drawable/btn_star"
-                android:visibility="visible"
-                android:enabled="false"
-                android:layout_gravity="start"/>
+                android:src="@android:drawable/btn_star"
+                android:scaleType="fitCenter"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
