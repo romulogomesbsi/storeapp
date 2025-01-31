@@ -1,12 +1,15 @@
 // ProductAdapter.kt
-package com.br.romulodiego.storeapp.adapter
+package com.br.romulodiego.storeapp.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductBinding
-import com.br.romulodiego.storeapp.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
+import com.squareup.picasso.Picasso
+import kotlin.random.Random
 
 class ProductAdapter(
     private val products: List<Product>,
@@ -26,11 +29,16 @@ class ProductAdapter(
 
     class ProductViewHolder(private val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product, onClick: (Product) -> Unit) {
-            binding.productImage.setImageResource(R.drawable.ic_launcher_background) // Placeholder image
+            val imageUrl = product.image
+            Picasso.get()
+                .load(imageUrl)
+                .into(binding.productImage)
             binding.productTitle.text = product.title
             binding.productPrice.text = product.price.toString()
             binding.productCategory.text = product.category
             binding.productDescription.text = product.description
+            binding.textFavoriteItem.visibility = if (product.isInWishlist) View.VISIBLE else View.GONE
+            binding.wishlistIndicator.visibility = if (product.isInWishlist) View.VISIBLE else View.GONE
             binding.root.setOnClickListener { onClick(product) }
         }
     }

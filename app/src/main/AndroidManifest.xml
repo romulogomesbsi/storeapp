@@ -13,21 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoreApp"
         tools:targetApi="31">
-        <activity android:name=".view.MainActivity"
+        <activity android:name=".presentation.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.CategoryActivity" />
-        <activity android:name=".view.ProductActivity" android:exported="true">
+        <activity android:name=".presentation.view.CategoryActivity" />
+        <activity android:name=".presentation.view.ProductActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ProductDetailActivity" android:exported="true"/>
+        <activity android:name=".presentation.view.ProductDetailActivity" android:exported="true"/>
+
+        <activity android:name=".presentation.view.ProductsFavoritesActivity" android:exported="true">
+        </activity>
     </application>
 
 </manifest>

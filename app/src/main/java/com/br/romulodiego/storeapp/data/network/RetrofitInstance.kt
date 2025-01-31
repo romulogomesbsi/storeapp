@@ -1,5 +1,5 @@
 // RetrofitInstance.kt
-package com.br.romulodiego.storeapp.network
+package com.br.romulodiego.storeapp.data.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

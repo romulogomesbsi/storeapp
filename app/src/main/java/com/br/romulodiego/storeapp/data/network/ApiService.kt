@@ -1,8 +1,7 @@
 // ApiService.kt
-package com.br.romulodiego.storeapp.network
+package com.br.romulodiego.storeapp.data.network
 
-import com.br.romulodiego.storeapp.model.Category
-import com.br.romulodiego.storeapp.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -14,6 +13,6 @@ interface ApiService {
     @GET("products/category/{category}")
     suspend fun getProductsByCategory(@Path("category") category: String): List<Product>
 
-    @GET("products")
+    @GET("products/")
     suspend fun searchProducts(@Query("q") query: String): List<Product>
 }

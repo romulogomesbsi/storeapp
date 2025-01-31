@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.model
+package com.br.romulodiego.storeapp.data.models
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -9,7 +9,8 @@ data class Product(
     val price: Double,
     val category: String,
     val description: String,
-    val image: String
+    val image: String,
+    var isInWishlist: Boolean = false
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
