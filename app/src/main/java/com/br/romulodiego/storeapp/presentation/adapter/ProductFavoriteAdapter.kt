@@ -3,16 +3,17 @@
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductFavoriteBinding
 import com.br.romulodiego.storeapp.model.ProductFavorite
 
-class ProdutoFavoritoAdapter(
+class ProductFavoriteAdapter(
     val onClickExcluir: (Int) -> Unit
-) : RecyclerView.Adapter<ProdutoFavoritoAdapter.ProdutosFavoritosViewHolder>() {
+) : RecyclerView.Adapter<ProductFavoriteAdapter.ProdutosFavoritosViewHolder>() {
 
     private var produtosFavoritosList: List<ProductFavorite> = emptyList()
 
-    fun adicionarLista( lista: List<ProductFavorite> ){
+    fun addToList(lista: List<ProductFavorite> ){
         this.produtosFavoritosList = lista
         notifyDataSetChanged()
     }
@@ -30,7 +31,10 @@ class ProdutoFavoritoAdapter(
         fun bind( produto: ProductFavorite){
             binding.txtTitulo.text = produto.title
             binding.txtPreco.text = "R$ " + produto.price.toString()
-
+            // Seleção aleatória de imagem
+            val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
+            val randomImage = images.random()
+            binding.productImage.setImageResource(randomImage)
             binding.btnExcluir.setOnClickListener {
                 onClickExcluir( produto.id )
             }

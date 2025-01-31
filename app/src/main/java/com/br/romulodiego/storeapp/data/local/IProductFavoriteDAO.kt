@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.database
+package com.br.romulodiego.storeapp.data.local
 
 import com.br.romulodiego.storeapp.model.ProductFavorite
 

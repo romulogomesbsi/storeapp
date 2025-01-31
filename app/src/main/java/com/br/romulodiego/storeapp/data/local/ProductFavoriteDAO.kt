@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.database
+package com.br.romulodiego.storeapp.data.local
 
 import android.content.ContentValues
 import android.content.Context

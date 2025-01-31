@@ -35,7 +35,7 @@ class ProductAdapter(
             binding.productPrice.text = product.price.toString()
             binding.productCategory.text = product.category
             binding.productDescription.text = product.description
-            binding.TextItemFavoritado.visibility = if (product.isInWishlist) View.VISIBLE else View.GONE
+            binding.textFavoriteItem.visibility = if (product.isInWishlist) View.VISIBLE else View.GONE
             binding.wishlistIndicator.visibility = if (product.isInWishlist) View.VISIBLE else View.GONE
             binding.root.setOnClickListener { onClick(product) }
         }
