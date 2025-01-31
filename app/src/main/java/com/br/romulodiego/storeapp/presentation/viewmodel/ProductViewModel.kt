@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.br.romulodiego.storeapp.data.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
 import com.br.romulodiego.storeapp.data.repository.ProductRepositoryImpl
 import com.br.romulodiego.storeapp.domain.usecase.FetchProductsByCategoryUseCase
 import com.br.romulodiego.storeapp.domain.usecase.IsProductInWishlistUseCase

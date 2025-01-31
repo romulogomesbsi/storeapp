@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.romulodiego.storeapp.databinding.ActivityProductsFavoritesBinding
-import com.br.romulodiego.storeapp.data.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.models.ProductFavorite
 import com.br.romulodiego.storeapp.data.local.ProductFavoriteDAO
 
 class ProductsFavoritesActivity : AppCompatActivity() {
@@ -47,7 +47,7 @@ class ProductsFavoritesActivity : AppCompatActivity() {
         alertBuilder.setPositiveButton("Sim"){ _, _ ->
 
             val productFavoriteDAO = ProductFavoriteDAO(this)
-            if ( productFavoriteDAO.remover( id ) ){
+            if ( productFavoriteDAO.delete( id ) ){
                 updateProductsFavoritiesList()
                 Toast.makeText(
                     this,
@@ -72,7 +72,7 @@ class ProductsFavoritesActivity : AppCompatActivity() {
     private fun updateProductsFavoritiesList(){
 
         val productFavoriteDAO = ProductFavoriteDAO(this)
-        productFavoriteList = productFavoriteDAO.listar()
+        productFavoriteList = productFavoriteDAO.listAll()
         productFavoriteAdapter?.addToList( productFavoriteList )
     }
 

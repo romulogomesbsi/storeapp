@@ -6,12 +6,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ActivityProductDetailBinding
-import com.br.romulodiego.storeapp.data.model.Product
-import com.br.romulodiego.storeapp.data.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.models.Product
+import com.br.romulodiego.storeapp.data.models.ProductFavorite
 import com.br.romulodiego.storeapp.data.local.ProductFavoriteDAO
-import kotlin.random.Random
+import com.squareup.picasso.Picasso
 
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailBinding
@@ -27,9 +26,10 @@ class ProductDetailActivity : AppCompatActivity() {
         val product = intent.getParcelableExtra<Product>("product")
         product?.let {
 
-            val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
-            val randomImage = images[Random.nextInt(images.size)]
-            binding.productImage.setImageResource(randomImage)
+            val imageUrl = product.image
+            Picasso.get()
+                .load(imageUrl)
+                .into(binding.productImage)
             binding.productTitle.text = it.title
             binding.productPrice.text = it.price.toString()
             binding.productCategory.text = it.category
@@ -49,19 +49,22 @@ class ProductDetailActivity : AppCompatActivity() {
         val productFavoriteDAO = ProductFavoriteDAO(this)
         val product = intent.getParcelableExtra<Product>("product")
         product?.let {
-            val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
-            val randomImage = images[Random.nextInt(images.size)]
-            binding.productImage.setImageResource(randomImage)
-            binding.productTitle.text = it.title
-            binding.productPrice.text = it.price.toString()
+//            val imageUrl = product.image
+//            Picasso.get()
+//                .load(imageUrl)
+//                .into(binding.productImage)
+//            binding.productImage = it
+//            binding.productTitle.text = it.title
+//            binding.productPrice.text = it.price.toString()
 
 
             val productFavorite = ProductFavorite(
                 id = it.id,
+                image = it.image,
                 title = it.title,
                 price = it.price,
             )
-            val sucesso = productFavoriteDAO.salvar(productFavorite)
+            val sucesso = productFavoriteDAO.save(productFavorite)
             if (sucesso) {
                 Toast.makeText(this, "Produto salvo na lista de favoritos", Toast.LENGTH_LONG).show()
             } else {

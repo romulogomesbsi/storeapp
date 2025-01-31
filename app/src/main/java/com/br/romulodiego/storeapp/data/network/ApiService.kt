@@ -1,8 +1,7 @@
 // ApiService.kt
 package com.br.romulodiego.storeapp.data.network
 
-import com.br.romulodiego.storeapp.data.model.Category
-import com.br.romulodiego.storeapp.data.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

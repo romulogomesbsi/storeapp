@@ -3,9 +3,9 @@
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.br.romulodiego.storeapp.R
 import com.br.romulodiego.storeapp.databinding.ItemProductFavoriteBinding
-import com.br.romulodiego.storeapp.data.model.ProductFavorite
+import com.br.romulodiego.storeapp.data.models.ProductFavorite
+import com.squareup.picasso.Picasso
 
 class ProductFavoriteAdapter(
     val onClickExcluir: (Int) -> Unit
@@ -28,15 +28,15 @@ class ProductFavoriteAdapter(
             binding = itemBinding
         }
 
-        fun bind( produto: ProductFavorite){
-            binding.txtTitulo.text = produto.title
-            binding.txtPreco.text = "R$ " + produto.price.toString()
-            // Seleção aleatória de imagem
-            val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
-            val randomImage = images.random()
-            binding.productImage.setImageResource(randomImage)
+        fun bind(product: ProductFavorite){
+            binding.txtTitulo.text = product.title
+            binding.txtPreco.text = "R$ " + product.price.toString()
+            val imageUrl = product.image
+            Picasso.get()
+                .load(imageUrl)
+                .into(binding.productImage)
             binding.btnExcluir.setOnClickListener {
-                onClickExcluir( produto.id )
+                onClickExcluir( product.id )
             }
         }
 

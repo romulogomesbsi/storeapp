@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.br.romulodiego.storeapp.data.model.Category
 import com.br.romulodiego.storeapp.data.network.RetrofitInstance
 import kotlinx.coroutines.launch
 

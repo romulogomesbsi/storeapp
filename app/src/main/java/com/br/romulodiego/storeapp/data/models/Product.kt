@@ -1,4 +1,4 @@
-package com.br.romulodiego.storeapp.data.model
+package com.br.romulodiego.storeapp.data.models
 
 import android.os.Parcel
 import android.os.Parcelable

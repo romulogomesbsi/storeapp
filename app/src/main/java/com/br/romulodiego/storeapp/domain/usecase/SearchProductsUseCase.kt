@@ -1,6 +1,6 @@
 package com.br.romulodiego.storeapp.domain.usecase
 
-import com.br.romulodiego.storeapp.data.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
 import com.br.romulodiego.storeapp.domain.repository.ProductRepository
 
 class SearchProductsUseCase(private val productRepository: ProductRepository) {

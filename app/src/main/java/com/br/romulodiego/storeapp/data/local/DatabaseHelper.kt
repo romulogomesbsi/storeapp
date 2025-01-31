@@ -15,6 +15,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
         const val VERSAO = 1
         const val NOME_TABELA_PRODUTO_FAVORITO = "produtos_favoritos"
         const val COLUNA_ID_PRODUTO_FAVORITO = "id"
+        const val COLUNA_IMAGE_PRODUTO_FAVORITO = "image"
         const val COLUNA_TITLE_PRODUTO_FAVORITO = "title"
         const val COLUNA_PRICE_PRODUTO_FAVORITO = "price"
     }
@@ -23,6 +24,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
 
         val sql = "CREATE TABLE IF NOT EXISTS $NOME_TABELA_PRODUTO_FAVORITO(" +
                 "$COLUNA_ID_PRODUTO_FAVORITO INTEGER not NULL," +
+                "$COLUNA_IMAGE_PRODUTO_FAVORITO TEXT not NULL," +
                 "$COLUNA_TITLE_PRODUTO_FAVORITO VARCHAR(255)," +
                 "$COLUNA_PRICE_PRODUTO_FAVORITO DOUBLE NOT NULL" +
                 ");"

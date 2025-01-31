@@ -3,7 +3,7 @@ package com.br.romulodiego.storeapp.data.repository
 
 import android.content.Context
 import com.br.romulodiego.storeapp.data.local.ProductFavoriteDAO
-import com.br.romulodiego.storeapp.data.model.Product
+import com.br.romulodiego.storeapp.data.models.Product
 import com.br.romulodiego.storeapp.data.network.RetrofitInstance
 import com.br.romulodiego.storeapp.domain.repository.ProductRepository
 
@@ -19,6 +19,6 @@ class ProductRepositoryImpl(private val context: Context) : ProductRepository {
     }
 
     override suspend fun isProductInWishlist(productId: Int): Boolean {
-        return productFavoriteDAO.buscarPorId(productId)
+        return productFavoriteDAO.findbyId(productId)
     }
 }
