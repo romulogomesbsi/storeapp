@@ -36,6 +36,7 @@ class ProductActivity : AppCompatActivity() {
             binding.recyclerViewProducts.adapter = ProductAdapter(products) { product ->
                 val intent = Intent(this, ProductDetailActivity::class.java)
                 intent.putExtra("product", product)
+                intent.putExtra("isWishList", product.isInWishlist)
                 startActivity(intent)
             }
         })

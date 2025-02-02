@@ -2,6 +2,7 @@ package com.br.romulodiego.storeapp.presentation.view
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -24,6 +25,10 @@ class ProductDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val product = intent.getParcelableExtra<Product>("product")
+        val isInWishlist = intent.getBooleanExtra("isWishList", false)
+        if (isInWishlist) {
+            binding.favoriteButton.visibility = View.INVISIBLE
+        }
         product?.let {
 
             val imageUrl = product.image
@@ -34,6 +39,7 @@ class ProductDetailActivity : AppCompatActivity() {
             binding.productPrice.text = it.price.toString()
             binding.productCategory.text = it.category
             binding.productDescription.text = it.description
+
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
