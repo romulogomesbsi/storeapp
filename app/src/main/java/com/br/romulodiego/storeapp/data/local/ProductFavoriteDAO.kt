@@ -89,7 +89,7 @@ class ProductFavoriteDAO(context: Context) : IProductFavoriteDAO {
 
     }
 
-    override fun findbyId(idProductFavorite: Int): Boolean {
+    override fun findById(idProductFavorite: Int): Boolean {
         val sql = "SELECT ${DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO} " +
                 "FROM ${DatabaseHelper.NOME_TABELA_PRODUTO_FAVORITO} " +
                 "WHERE ${DatabaseHelper.COLUNA_ID_PRODUTO_FAVORITO} = ?"

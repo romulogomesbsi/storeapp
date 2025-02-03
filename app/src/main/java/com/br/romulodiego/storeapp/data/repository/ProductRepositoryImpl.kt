@@ -19,6 +19,6 @@ class ProductRepositoryImpl(private val context: Context) : ProductRepository {
     }
 
     override suspend fun isProductInWishlist(productId: Int): Boolean {
-        return productFavoriteDAO.findbyId(productId)
+        return productFavoriteDAO.findById(productId)
     }
 }

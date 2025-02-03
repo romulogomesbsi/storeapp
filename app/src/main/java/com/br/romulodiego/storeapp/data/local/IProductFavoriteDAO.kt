@@ -9,5 +9,5 @@ interface IProductFavoriteDAO {
     fun delete(idProduct: Int ): Boolean
     fun listAll(): List<ProductFavorite>
 
-    fun findbyId(idProduct: Int ): Boolean
+    fun findById(idProduct: Int ): Boolean
 }
